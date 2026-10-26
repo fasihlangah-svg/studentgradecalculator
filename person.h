@@ -21,6 +21,7 @@ public:
            const std::vector<int>& hw,
            int e);
 
+    // Rule of Three
     Person(const Person& other);
     Person& operator=(const Person& other);
     ~Person();

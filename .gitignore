@@ -1,0 +1,9 @@
+# Compiled C++ programs
+studentgradecalculator
+studentgardecalculator
+
+# VS Code settings
+.vscode/
+
+# macOS files
+.DS_Store
