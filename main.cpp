@@ -4,103 +4,20 @@
 #include <fstream>
 #include <algorithm>
 #include <iomanip>
-#include <numeric>
 #include <random>
+
+#include "person.h"
+
 using namespace std;
-class Person {
-private:
-    string name;
-    string surname;
-    vector<int> homework;
-    int exam;
-    double finalGrade;
-public:
-    Person() : name(""), surname(""), exam(0), finalGrade(0.0) {}
-    Person(const string& n, const string& s,
-           const vector<int>& hw, int e)
-        : name(n), surname(s), homework(hw),
-          exam(e), finalGrade(0.0) {}
-    // Rule of Three
-    Person(const Person& other)
-        : name(other.name),
-          surname(other.surname),
-          homework(other.homework),
-          exam(other.exam),
-          finalGrade(other.finalGrade) {}
-    Person& operator=(const Person& other) {
-        if (this != &other) {
-            name = other.name;
-            surname = other.surname;
-            homework = other.homework;
-            exam = other.exam;
-            finalGrade = other.finalGrade;
-        }
-        return *this;
-    }
-    ~Person() {}
-    double calculateAverage() const {
-        if (homework.empty())
-            return exam;
-        double sum = accumulate(
-            homework.begin(),
-            homework.end(),
-            0.0
-        );
-        double average = sum / homework.size();
-        return 0.4 * average + 0.6 * exam;
-    }
-    double calculateMedian() const {
-        if (homework.empty())
-            return exam;
-        vector<int> sortedHomework = homework;
-        sort(sortedHomework.begin(), sortedHomework.end());
-        double median;
-        if (sortedHomework.size() % 2 == 0) {
-            int middle1 =
-                sortedHomework[sortedHomework.size() / 2 - 1];
-            int middle2 =
-                sortedHomework[sortedHomework.size() / 2];
-            median = (middle1 + middle2) / 2.0;
-        }
-        else {
-            median = sortedHomework[sortedHomework.size() / 2];
-        }
-        return 0.4 * median + 0.6 * exam;
-    }
-    string getName() const {
-        return name;
-    }
-    string getSurname() const {
-        return surname;
-    }
-    friend istream& operator>>(istream& in, Person& student) {
-        in >> student.name >> student.surname;
-        int numberOfHomework;
-        in >> numberOfHomework;
-        student.homework.clear();
-        for (int i = 0; i < numberOfHomework; i++) {
-            int grade;
-            in >> grade;
-            student.homework.push_back(grade);
-        }
-        in >> student.exam;
-        return in;
-    }
-    friend ostream& operator<<(ostream& out,
-                               const Person& student) {
-        out << left
-            << setw(15) << student.name
-            << setw(15) << student.surname
-            << fixed << setprecision(2)
-            << student.calculateAverage();
-        return out;
-    }
-};
+
 bool compareStudents(const Person& a, const Person& b) {
     if (a.getSurname() == b.getSurname())
         return a.getName() < b.getName();
+
     return a.getSurname() < b.getSurname();
 }
+
+
 Person generateRandomStudent(int numberOfHomework) {
     static random_device rd;
     static mt19937 generator(rd());
