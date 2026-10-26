@@ -7,15 +7,10 @@
 #include <random>
 
 #include "person.h"
+#include "studentprocessor.h"
 
 using namespace std;
 
-bool compareStudents(const Person& a, const Person& b) {
-    if (a.getSurname() == b.getSurname())
-        return a.getName() < b.getName();
-
-    return a.getSurname() < b.getSurname();
-}
 
 
 Person generateRandomStudent(int numberOfHomework) {
@@ -122,19 +117,15 @@ void generateStudents(vector<Person>& students) {
     cout << "\nRandom data generated successfully.\n";
 }
 bool readFromFile(vector<Person>& students) {
-    ifstream file("Students.txt");
-    if (!file.is_open()) {
-        cout << "\nCould not open Students.txt.\n";
+    try {
+        StudentProcessor::readFromFile(students, "students.txt");
+        cout << "\nStudents loaded successfully.\n";
+        return true;
+    }
+    catch (const exception& e) {
+        cout << "\nError: " << e.what() << "\n";
         return false;
     }
-    students.clear();
-    Person student;
-    while (file >> student) {
-        students.push_back(student);
-    }
-    file.close();
-    cout << "\nStudents loaded successfully.\n";
-    return true;
 }
 int main() {
     vector<Person> students;
@@ -160,11 +151,7 @@ int main() {
         cout << "Invalid choice.\n";
         return 1;
     }
-    sort(
-        students.begin(),
-        students.end(),
-        compareStudents
-    );
+   StudentProcessor::sortStudents(students);
     if (!students.empty())
         displayResults(students);
     else
