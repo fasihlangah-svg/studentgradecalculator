@@ -7,3 +7,13 @@ studentgardecalculator
 
 # macOS files
 .DS_Store
+# Compiled programs
+benchmark
+performance
+
+# Generated student datasets
+students_*.txt
+
+# Generated passing and failing results
+passing_students*.txt
+failing_students*.txt
