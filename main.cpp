@@ -152,9 +152,36 @@ int main() {
         return 1;
     }
    StudentProcessor::sortStudents(students);
-    if (!students.empty())
-        displayResults(students);
-    else
-        cout << "\nNo students to display.\n";
-    return 0;
+
+if (!students.empty()) {
+    displayResults(students);
+
+    vector<Person> passing;
+    vector<Person> failing;
+
+    try {
+        StudentProcessor::splitStudents(
+            students, passing, failing
+        );
+
+        StudentProcessor::writeResults(
+            passing,
+            failing,
+            "passing_students.txt",
+            "failing_students.txt"
+        );
+
+        cout << "\nResults saved successfully!\n";
+        cout << "Passing students: " << passing.size() << '\n';
+        cout << "Failing students: " << failing.size() << '\n';
+    }
+    catch (const exception& e) {
+        cerr << "\nError: " << e.what() << '\n';
+        return 1;
+    }
+} else {
+    cout << "\nNo students to display.\n";
+}
+
+  return 0;
 }
