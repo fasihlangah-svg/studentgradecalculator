@@ -17,3 +17,13 @@ students_*.txt
 # Generated passing and failing results
 passing_students*.txt
 failing_students*.txt
+# Container benchmark executable
+containerbenchmark
+container
+
+# Generated benchmark results
+passing_*.txt
+failing_*.txt
+
+# Generated datasets
+students_*.txt
