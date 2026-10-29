@@ -87,13 +87,15 @@ void runBenchmark(const string& filename, const string& containerName) {
     }
 }
 
+
+
 int main() {
     const vector<string> files = {
-    "students_1000.txt",
-    "students_10000.txt",
-    "students_100000.txt",
-    "students_1000000.txt"
-};
+        "students_1000.txt",
+        "students_10000.txt",
+        "students_100000.txt",
+        "students_1000000.txt"
+    };
 
     try {
         for (const string& file : files) {
@@ -107,3 +109,4 @@ int main() {
 
     return 0;
 }
+

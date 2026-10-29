@@ -82,3 +82,9 @@ Passing: 503924
 Failing: 496076
 Total time: 5.59538 seconds
 ------------------------------
+10,000,000 students
+vector: 100.533 seconds
+deque: 106.291 seconds
+Passing: 5,051,911
+Failing: 4,948,089
+Note: The 10-million list test has not been run.
