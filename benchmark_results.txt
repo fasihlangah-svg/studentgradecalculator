@@ -1,0 +1,84 @@
+Container: vector
+Dataset: students_1000.txt
+Students: 1000
+Passing: 493
+Failing: 507
+Total time: 0.00528079 seconds
+------------------------------
+Container: list
+Dataset: students_1000.txt
+Students: 1000
+Passing: 493
+Failing: 507
+Total time: 0.00296512 seconds
+------------------------------
+Container: deque
+Dataset: students_1000.txt
+Students: 1000
+Passing: 493
+Failing: 507
+Total time: 0.00434904 seconds
+------------------------------
+Container: vector
+Dataset: students_10000.txt
+Students: 10000
+Passing: 5039
+Failing: 4961
+Total time: 0.0456379 seconds
+------------------------------
+Container: list
+Dataset: students_10000.txt
+Students: 10000
+Passing: 5039
+Failing: 4961
+Total time: 0.0270305 seconds
+------------------------------
+Container: deque
+Dataset: students_10000.txt
+Students: 10000
+Passing: 5039
+Failing: 4961
+Total time: 0.0448695 seconds
+------------------------------
+Container: vector
+Dataset: students_100000.txt
+Students: 100000
+Passing: 50347
+Failing: 49653
+Total time: 0.497486 seconds
+------------------------------
+Container: list
+Dataset: students_100000.txt
+Students: 100000
+Passing: 50347
+Failing: 49653
+Total time: 0.282538 seconds
+------------------------------
+Container: deque
+Dataset: students_100000.txt
+Students: 100000
+Passing: 50347
+Failing: 49653
+Total time: 0.482307 seconds
+------------------------------
+Container: vector
+Dataset: students_1000000.txt
+Students: 1000000
+Passing: 503924
+Failing: 496076
+Total time: 5.65701 seconds
+------------------------------
+Container: list
+Dataset: students_1000000.txt
+Students: 1000000
+Passing: 503924
+Failing: 496076
+Total time: 3.05251 seconds
+------------------------------
+Container: deque
+Dataset: students_1000000.txt
+Students: 1000000
+Passing: 503924
+Failing: 496076
+Total time: 5.59538 seconds
+------------------------------
